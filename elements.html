@@ -109,7 +109,7 @@
     </div>
     <div class="filter cl">
       <div class="wp">
-        <dl>
+        <dl id="category_wrap">
           <dt>分类：</dt>
             <dd id="dom_keyword2">
               <a href="#">[全部]</a>
@@ -210,6 +210,25 @@
 	<div class="wp">
     <div class="search_result">123个搜索结果</div>
     <div class="pictures cl">
+        <script id="tpl_keyword2" type="text/html">
+          <% for (var i = 0; i < list.length; i++) { %>
+              <li class="original">
+                <a href="javascript:;">
+                  <cite>
+                    <em>收藏</em>
+                    <i class="psd">PSD</i>
+                    <i class="fla">FLA</i>
+                  </cite>
+                  <p>
+                  materialName
+                    <strong><%= list[i].materialName %></strong>
+                    <span class="bg"></span>
+                  </p>
+                  <img src="<%= list[i].materialUrl %>" alt="<%= list[i].materialName %>" />
+                </a>
+              </li>
+          <% } %>
+        </script>
       <ul id="tiles">
         <li>
           <a href="#">

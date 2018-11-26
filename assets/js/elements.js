@@ -30,6 +30,7 @@
 	}
 	var elements_keyword3_query = function (params, fn) {
 		var url = prefix + '/categoryThree/selectCategoryThreeList.do'
+		params.showType = 1
 		$.get(url, params, function(data) {
 			if (data.code === 0) {
 				fn(data.body)
@@ -42,10 +43,12 @@
 			var ddId = $(this).parents('dd').attr('id')
 			var isKeyword2 = ddId.indexOf('keyword2') !== -1
 			var isKeyword3 = ddId.indexOf('keyword3') !== -1
+			isKeyword2 ? search_params.keyword3 = '' : void(0)
 			// 是否全选
 			if ($(this).hasClass('jsAll')) {
 				$(this).addClass('selected')
-				search_params.keyword2 = id
+				isKeyword2 ? search_params.keyword2 = id : void(0)
+				isKeyword2 ? search_params.keyword3 = id : void(0)
 			} else {
 				// 单个分类时 是否已全选
 				var $jsAll = $(this).siblings('.jsAll')
@@ -109,7 +112,6 @@
 	}
 	// 二级关键字点击搜索事件
 	var bindKeyword2Click = function() {
-		search_params.keyword3 = ''
 		$('#dom_keyword2 a').click(bindKeywordClick)
 	}
 	$(document).ready(function() {
@@ -117,6 +119,7 @@
 		$('#categroy_select').children('li').click(function(event) {
 			var oneCategoryId = $(this).attr('data-oneCategoryId')
 			var tpl = document.getElementById('tpl_keyword2').innerHTML;
+			$("#category_wrap").find('a').removeClass('selected')
 			elements_keyword2_query(oneCategoryId, function(body) {
 				var tempAry = []
 				for (var i = 0; i < body.length; i++) {
@@ -128,6 +131,7 @@
 			})
 			search_params.oneCategoryId = oneCategoryId
 			search_params.keyword2 = ''
+			search_params.keyword3 = ''
 			elements_api_query(search_params)
 		});
 		// 搜索
