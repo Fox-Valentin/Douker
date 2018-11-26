@@ -1,0 +1,475 @@
+/*
+-----------------------------------
+Main CSS File For Douker
+Created & Modified by fanzjgw
+-----------------------------------
+*/
+/* 变量 */
+/*
+-----------------------------------
+Main CSS File For Douker
+Created & Modified by fanzjgw
+-----------------------------------
+*/
+/* 变量 */
+/* 颜色 */
+/* 文字颜色 */
+/* 初始化 */
+body,
+input,
+button,
+select,
+textarea {
+  font: 14px/1.5 'Microsoft Yahei', 'Aril', sans-serif;
+  color: #333333;
+}
+body,
+ul,
+ol,
+li,
+dl,
+dd,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form {
+  margin: 0;
+  padding: 0;
+}
+table {
+  empty-cells: show;
+  border-collapse: collapse;
+}
+caption,
+th {
+  text-align: left;
+  font-weight: 400;
+}
+em,
+cite,
+i {
+  font-style: normal;
+}
+a {
+  color: #333333;
+  text-decoration: none;
+  outline: none;
+}
+a img {
+  border: none;
+}
+a:hover {
+  color: #00b0f0;
+}
+:focus {
+  outline: 0;
+}
+textarea {
+  resize: none;
+}
+button {
+  border: none;
+}
+body {
+  background: #f5f5f5;
+}
+ul {
+  list-style: none;
+}
+.wp {
+  width: 1200px;
+  margin: 0 auto;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.cl:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.cl {
+  zoom: 1;
+}
+.listStyle {
+  list-style: none;
+}
+/* 顶部 */
+.topbar {
+  overflow: hidden;
+  padding: 0 5px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #EEE;
+  font-size: 18px;
+}
+.topbar span {
+  float: right;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+}
+.topbar span.avator a {
+  display: block;
+  margin-right: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background-color: #333333;
+  text-align: center;
+}
+.topbar a.logo {
+  float: left;
+  margin-top: 4px;
+  padding-left:10px;
+}
+/* 底部 */
+.footer .activitys {
+  width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 28px;
+}
+.footer .activitys ul {
+  border: 2px solid #cccccc;
+  background-color: #ffffff;
+  padding: 4px;
+}
+.footer .activitys ul li {
+  float: left;
+  width: 50%;
+}
+.footer .activitys ul li a {
+  display: block;
+  margin: 28px;
+  height: 76px;
+  line-height: 76px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 24px;
+}
+.footer .activitys ul li a.multi {
+  line-height: 24px;
+}
+.footer .activitys ul li a.multi strong {
+  display: block;
+  padding-top: 16px;
+  font-weight: 400;
+}
+.footer .activitys ul li a.multi em {
+  font-size: 18px;
+}
+.footer .menu {
+  height: 60px;
+  line-height: 60px;
+  background-color: #3e3e3e;
+}
+.footer .copyright {
+  height: 50px;
+  line-height: 50px;
+  background-color: #333333;
+  color: #999999;
+}
+.footer .copyright em {
+  padding: 0 20px;
+}
+.footer .copyright span {
+  color: #cccccc;
+}
+.footer .copyright span a {
+  display: inline-block;
+  padding: 0 10px;
+  color: #cccccc;
+}
+.footer .copyright span a:hover {
+  color: #00b0f0;
+}
+.index {
+  position: relative;
+  min-width: 1200px;
+  background: url('../images/bodybg') no-repeat 0 0;
+  background-size: 100% 100%;
+  height: 100vh;
+}
+.index .topbar {
+  background-color: transparent!important;
+}
+.index .topbar span {
+  color: #ffffff;
+}
+.index .topbar span a {
+  color: #cccccc;
+}
+.index .douker_search {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-sizing: border-box;
+  width: 844px;
+  margin-left: -500px;
+  margin-top: -200px;
+  padding-left: 20px;
+  color: #cccccc;
+}
+.index .douker_search p {
+  font-size: 18px;
+}
+.index .douker_search .options {
+  padding: 20px 0;
+}
+.index .douker_search .options a {
+  float: left;
+  display: inline-block;
+  margin-right: 10px;
+  padding: 0 24px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+}
+.index .douker_search .options a.selected,
+.index .douker_search .options a:hover {
+  background-color: #adae5c;
+  color: #ffffff;
+}
+.index .douker_search .search {
+  margin-left: -20px;
+}
+.index .douker_search .search form {
+  position: relative;
+  float: left;
+  display: block;
+  width: 718px;
+}
+.index .douker_search .search form .keyword {
+  margin-bottom: 10px;
+  width: 100%;
+  height: 82px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 82px;
+  text-indent: 20px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #333333;
+}
+.index .douker_search .search form button {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: inline-block;
+  width: 44px;
+  height: 43px;
+  background: url('../images/icon_search_btn.png') no-repeat 0 0;
+}
+.index .douker_search .search form button em {
+  display: none;
+}
+.index .douker_search .search .go_home {
+  display: block;
+  float: right;
+  width: 90px;
+  text-align: center;
+  color: #adae5c;
+  font-size: 18px;
+}
+.index .douker_search .search .go_home em {
+  display: block;
+  margin: 0 auto 6px;
+  width: 82px;
+  height: 82px;
+  background: #adae5c url('../images/icon_home.png') no-repeat 50% 50%;
+  border-radius: 82px;
+  -webkit-border-radius: 82px;
+  -moz-border-radius: 82px;
+}
+.index .douker_search .search .go_home:hover {
+  color: #00b0f0;
+}
+.index .douker_search .hotspot {
+  padding-left: 20px;
+  font-size: 18px;
+}
+.index .douker_search .hotspot cite {
+  float: left;
+  font-weight: 700;
+}
+.index .douker_search .hotspot a {
+  float: left;
+  padding-right: 8px;
+  color: #cccccc;
+}
+.index .douker_search .hotspot a:hover {
+  color: #00b0f0;
+}
+.index .activitys {
+  position: absolute;
+  width: 200px;
+  right: 12px;
+  top: 50%;
+  margin-top: -130px;
+  font-size: 18px;
+}
+.index .activitys a {
+  display: block;
+  margin-bottom: 10px;
+  height: 80px;
+  line-height: 80px;
+  background-color: #cc3300;
+  border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  color: #ffffff;
+  text-align: center;
+}
+.index .activitys a.multi {
+  line-height: 20px;
+}
+.index .activitys a.multi strong {
+  display: block;
+  padding-top: 20px;
+}
+.index .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.entry .login,
+.entry .register {
+  position: absolute;
+  width: 1000px;
+  height: 500px;
+  left: 50%;
+  top: 50%;
+  margin-left: -560px;
+  margin-top: -250px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+}
+.entry .register .info {
+  color: #333333 !important;
+}
+.entry section {
+  padding: 20px 0 40px;
+  text-align: center;
+}
+.entry section a {
+  color: #00b0f0;
+}
+.entry .form_box {
+  padding: 20px 40px 40px 60px;
+}
+.entry .form_box .form_items {
+  float: left;
+  width: 340px;
+}
+.entry .form_box .form_items .welcome {
+  padding-bottom: 20px;
+  font-size: 24px;
+  text-align: right;
+}
+.entry .form_box .form_items form p {
+  display: block;
+  padding-bottom: 14px;
+  padding-left: 65px;
+  line-height: 40px;
+}
+.entry .form_box .form_items form p label {
+  float: left;
+  display: inline-block;
+  width: 50px;
+  margin-left: -65px;
+  text-align: right;
+}
+.entry .form_box .form_items form p input {
+  width: 275px;
+  box-sizing: border-box;
+  border: 1px solid #999999;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 24px;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  text-indent: 0.8em;
+}
+.entry .form_box .form_items form p input.account {
+  background: url(../images/cn.jpg) no-repeat 10px 50%;
+  text-indent: 2.4em;
+}
+.entry .form_box .form_items form p input.code {
+  float: left;
+  margin-right: 11px;
+  width: 112px;
+}
+.entry .form_box .form_items form p .btn_code {
+  display: inline-block;
+  width: 150px;
+  height: 40px;
+  background-color: #999999;
+  color: #ffffff;
+  border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  text-align: center;
+}
+.entry .form_box .form_items form p .btn_submit {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #ff6600;
+  color: #ffffff;
+  border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.entry .form_box .form_items form p .btn_submit.btn_register {
+  background-color: #cbcc66;
+}
+.entry .form_box .form_items form p.find_password {
+  line-height: 24px;
+}
+.entry .form_box .form_items form p.find_password a {
+  padding-left: 10px;
+  color: #0099cb;
+}
+.entry .form_box .form_items form p.other span {
+  float: left;
+  padding-right: 20px;
+}
+.entry .form_box .info {
+  float: right;
+  overflow: hidden;
+  width: 502px;
+  color: #0099cb;
+  text-align: center;
+}
+.entry .form_box .info img,
+.entry .form_box .info .reg_info {
+  margin-bottom: 10px;
+  border: 1px solid #999999;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+.entry .form_box .info .reg_info {
+  overflow: auto;
+  padding: 10px;
+  height: 250px;
+  width:480px;
+  text-align: left;
+}
