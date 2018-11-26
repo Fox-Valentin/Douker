@@ -109,6 +109,7 @@
 	}
 	// 二级关键字点击搜索事件
 	var bindKeyword2Click = function() {
+		search_params.keyword3 = ''
 		$('#dom_keyword2 a').click(bindKeywordClick)
 	}
 	$(document).ready(function() {
@@ -126,6 +127,7 @@
 				bindKeyword2Click()
 			})
 			search_params.oneCategoryId = oneCategoryId
+			search_params.keyword2 = ''
 			elements_api_query(search_params)
 		});
 		// 搜索
