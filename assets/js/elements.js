@@ -114,25 +114,30 @@
 	var bindKeyword2Click = function() {
 		$('#dom_keyword2 a').click(bindKeywordClick)
 	}
+	// 一级切换处理
+	function categroySelect(oneCategoryId) {
+		var tpl = document.getElementById('tpl_keyword2').innerHTML;
+		$("#category_wrap").find('a').removeClass('selected')
+		elements_keyword2_query(oneCategoryId, function(body) {
+			var tempAry = []
+			for (var i = 0; i < body.length; i++) {
+				tempAry.push(body[i].id)
+			}
+			var tpl_str = template(tpl, {list: body, all: tempAry.join(',')});
+			$('#dom_keyword2').html(tpl_str)
+			bindKeyword2Click()
+		})
+		search_params.oneCategoryId = oneCategoryId
+		search_params.keyword2 = ''
+		search_params.keyword3 = ''
+		elements_api_query(search_params)
+	}
+
 	$(document).ready(function() {
 		// 一级切换
 		$('#categroy_select').children('li').click(function(event) {
 			var oneCategoryId = $(this).attr('data-oneCategoryId')
-			var tpl = document.getElementById('tpl_keyword2').innerHTML;
-			$("#category_wrap").find('a').removeClass('selected')
-			elements_keyword2_query(oneCategoryId, function(body) {
-				var tempAry = []
-				for (var i = 0; i < body.length; i++) {
-					tempAry.push(body[i].id)
-				}
-				var tpl_str = template(tpl, {list: body, all: tempAry.join(',')});
-				$('#dom_keyword2').html(tpl_str)
-				bindKeyword2Click()
-			})
-			search_params.oneCategoryId = oneCategoryId
-			search_params.keyword2 = ''
-			search_params.keyword3 = ''
-			elements_api_query(search_params)
+			categroySelect(oneCategoryId)
 		});
 		// 搜索
 		$('#element_search_keyword_sub').click(function(event) {
@@ -141,6 +146,8 @@
 			search_params.keyword = keyword
 			elements_api_query(search_params)
 		});
+		// 初始化
+		categroySelect(oneCategoryId)
 	});
 })()
 
