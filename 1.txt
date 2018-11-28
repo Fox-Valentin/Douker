@@ -1,0 +1,25 @@
+private Integer id ;//素材id;
+private String materialName ;//素材名称;
+private String materialUrl ;//素材地址url;
+private String materialUrlTmp ;//封面url缩略图;
+private String coverUrl ;//素材封面url;
+private Integer type ;//素材类型 : 0-FLA，1-PPT，2-PSD，3-成品，4-工程包，5-zip（类型可扩展）;
+private Integer uploadUserId ;//上传者用户id;
+private String uploadUserName ;//上传者用户昵称;
+private String dimension ;//尺寸;
+private String size ;//文件大小;
+private String keywords ;//关键字 （关键字之间逗号分隔）;
+private String keywords2 ;//二级分类关键字 （关键字之间逗号分隔）;
+private String keywords3 ;//三级分类关键字 （关键字之间逗号分隔）;
+
+private Integer oneCategoryId ;//素材所属1级分类id;
+private String oneCategoryName ;//所属1级分类名字;
+private Integer twoCategoryId ;//所属2级分类id;
+private String twoCategoryName ;//所属2级分类名字;
+private Integer sortWeight ;//排序权重，展示的时候由高到低降序;
+private Integer checkStatus ;//审核状态 0-待审核，1-审核通过;2-审核中;3-不通过
+private String isDelete ;//是否逻辑删除(Y/N);
+@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+private Date addTime ;//添加时间;
+
+type ;//素材类型 : 0-FLA，1-PPT，2-PSD，3-成品，4-工程包，5-zip（类型可扩展）;

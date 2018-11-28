@@ -9,11 +9,14 @@
 	<meta name="keywords" content="斗课儿图库">
 	<meta name="description" content="斗课儿图库-全国最大的科教文图片资源交流基地">
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/elements.css">
+	<script type="text/javascript" src="assets/js/jquery-2.0.3.js"></script>
 	<script type="text/javascript" src="assets/js/jquery.SuperSlide.2.1.1.js"></script>
   <script type="text/javascript" src="assets/js/jquery.wookmark.js"></script>
 	<script type="text/javascript" src="assets/js/template.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.page.js"></script>
+  <script type="text/javascript" src="assets/js/utils.js"></script>
   <script type="text/javascript" src="assets/js/elements.js"></script>
 </head>
 <body>
@@ -96,15 +99,13 @@
       </div>
     </div>
     <div class="wp cl">
-      <div class="hotspot">
-        <cite>热点：</cite>
-        <a href="#">儿童节</a>
-        <a href="#">618</a>
-        <a href="#">促销</a>
-        <a href="#">粽子</a>
-        <a href="#">端午节</a>
-        <a href="#">小催</a>
-        <a href="#">范冰冰</a>
+      <div class="hotspot" id="hotspot">
+        <script id="tpl_hotspot" type="text/html">
+            <cite>热点：</cite>
+          <% for (var i = 0; i < list.length; i++) { %>
+            <a href="javascript:;" data-plateId="<%= list[i].plateId %>"><%=list[i].keyWords%></a>
+          <% } %>
+        </script>
       </div>
     </div>
     <div class="filter cl">
@@ -208,29 +209,35 @@
     </div>
   </div>
 	<div class="wp">
-    <div class="search_result">123个搜索结果</div>
+    <div class="search_result"><font>0</font>个搜索结果</div>
     <div class="pictures cl">
-        <script id="tpl_keyword2" type="text/html">
+        <script id="result_list" type="text/html">
           <% for (var i = 0; i < list.length; i++) { %>
               <li class="original">
                 <a href="javascript:;">
                   <cite>
                     <em>收藏</em>
-                    <i class="psd">PSD</i>
-                    <i class="fla">FLA</i>
+                    <% if(list[i].type === 0) {%>
+                      <i class="psd">PSD</i>
+                    <%} else if (list[i].type === 1) {%>
+                      <i class="fla">FLA</i>
+                    <%} else if (list[i].type === 2) {%>
+                      <i class="png">PNG</i>
+                    <%} else if (list[i].type === 5) {%>
+                      <i class="zip">ZIP</i>
+                    <% } %>
                   </cite>
                   <p>
-                  materialName
                     <strong><%= list[i].materialName %></strong>
                     <span class="bg"></span>
                   </p>
-                  <img src="<%= list[i].materialUrl %>" alt="<%= list[i].materialName %>" />
+                  <img src="<%= list[i].materialUrlTmp %>" alt="<%= list[i].materialName %>" />
                 </a>
               </li>
           <% } %>
         </script>
       <ul id="tiles">
-        <li>
+        <!-- <li>
           <a href="#">
             <cite>
               <em>收藏</em>
@@ -694,22 +701,23 @@
             </p>
             <img src="assets/images/pics/pic_04.jpg" alt="图片名称" />
           </a>
-        </li>
+        </li> -->
       </ul>
     </div>
     <script>
-      $(document).ready(new function () {
-        $('#tiles li').wookmark({
-          autoResize: true,
-          container: $('#tiles'),
-          offset: 5,
-          outerOffset: 0,
-          itemWidth: 145
-        });
-      });
+      // $(document).ready(new function () {
+      //   $('#tiles li').wookmark({
+      //     autoResize: true,
+      //     container: $('#tiles'),
+      //     offset: 5,
+      //     outerOffset: 0,
+      //     itemWidth: 145
+      //   });
+      // });
     </script>
     <div class="pages">
-      <a href="#" class="curpage">1</a>
+      <div class="tcdPageCode"></div>
+      <!--     <a href="#" class="curpage">1</a>
       <a href="#">2</a>
       <a href="#">3</a>
       <a href="#">4</a>
@@ -717,7 +725,7 @@
       ...
       <a href="#">9999</a>
       <a href="#" class="long prev">上一页</a>
-      <a href="#" class="long next">下一页</a>
+      <a href="#" class="long next">下一页</a> -->
     </div>
 	</div>
 	<div class="footer">
