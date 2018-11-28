@@ -10,6 +10,23 @@
 	<meta name="description" content="斗课儿图库-全国最大的科教文图片资源交流基地">
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="assets/js/picture_upload.js"></script>
+	<style>
+		.upload_box input{
+			width: 100%;
+		    height: 100%;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    opacity: 0;
+		    z-index: 100;
+		}
+		.upload_box {
+			position: relative;
+		}
+	</style>
 </head>
 <body class="picture_upload">
 	<div class="topbar cl">
@@ -34,6 +51,9 @@
 					<p>手机相册的图片可扫码上传</p>
 				</div>
 				<div class="upload_box">
+					<form  id="file" method="post" enctype="multipart/form-data">
+						<input type="file" name="file" onchange="getPhoto(this)"/>
+					</form>
 					<a href="#"><img src="assets/images/icon_upload.png" alt="上传"></a>
 					<p>将图片直接拖拽到此虚线区域内上传<br />或者点击上方按钮上传</p>
 				</div>
@@ -57,7 +77,7 @@
 		</div>
 		<div class="upload_setting cl">
 			<div class="picture_view">
-				<img src="assets/images/pics/pic_01.jpg" alt="上传的图片" />
+				<!-- <img src="assets/images/pics/pic_01.jpg" alt="上传的图片" /> -->
 			</div>
 			<div class="options">
 				<dl>
@@ -74,7 +94,7 @@
 						1. 名称须以“XX的XX”为格式。例如：“逗逼的哈士奇”，“有压力的职员”<br />
 						2. 名称不能包括分类名字，比如不能使用“危险的动物”，而要改为“危险的老虎”<br />
 						3. 名称只能为字数20个以内的汉字<br />
-						<input type="text" name="title" class="px_name" />
+						<input type="text" class="fileName" name="title" class="px_name" />
 					</dd>
 					<dt>第三步：对图片进行分类</dt>
 					<dd>
@@ -92,13 +112,16 @@
 						<label><input type="radio" value='4' />成品</label>
 						<label><input type="radio" value='5' />工程包</label>
 						<p>
+							<form id="files" method="post" enctype="multipart/form-data" style="opacity: 0;">
+								<input type="file" name="file" onchange="getFiles(this)" id="uploadFile">
+							</form>
 							<input type="text" name="file" class="px_file" />
-							<button class="s_btn_file">浏览</button><button class="s_btn_file">上传</button>
+							<button class="s_btn_file" id="handleSearch">浏览</button><button class="s_btn_file" id="handleUp">上传</button>
 						</p>
 					</dd>
 				</dl>
 				<div class="btns">
-					<a href="#" class="btn_sb">提交审核</a>
+					<a href="javascript:;" class="btn_sb" id="subApproval">提交审核</a>
 				</div>
 			</div>
 		</div>
